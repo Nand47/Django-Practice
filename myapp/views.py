@@ -1,6 +1,8 @@
 from django.shortcuts import render,HttpResponse
 from django.http import JsonResponse
 
+from django.http import JsonResponse    
+
 def home(request):
     return HttpResponse("This is home page")
 
@@ -55,3 +57,68 @@ def even_odd(request, num):
     else:
         return HttpResponse(f"{num} is odd")
 
+
+def Jsondata(request):
+    data = {
+        'name': "Anand Yadav",
+        'course': "Django",
+        'Fees': 5000,
+    }
+    return JsonResponse(data)
+
+
+def Jsondata2(request):
+    data = {
+        'name': "Anand Yadav",
+        'course': ["Django", "Java", "C++", "C"],
+        'Address': "Jalandhar",
+    }
+    return JsonResponse(data)
+
+
+def Jsondata3(request):
+    data = {
+        'user1': {
+            'name' : "Anand Yadav",
+            'course' : "Django",
+        },
+        'user2': {
+            'name': "Sourabh Kumar",
+            'course': "Python",
+        }
+    }
+    return JsonResponse(data)
+
+
+def display(request, username):
+    return HttpResponse(f"My name is {username}")
+
+
+def year(request, year):
+    return HttpResponse(f"The year is {year}")
+
+
+def uservalue(request, username):
+    return HttpResponse(f"User value is: {username}")
+
+
+def website(request, data):
+    try:
+        result = 10 / data
+        return HttpResponse(f"Result: {result}")
+    except ZeroDivisionError:
+        return HttpResponse("Division by zero is not allowed")
+    
+def handler404(request,exception):
+    return HttpResponse("Page not found")
+
+
+def base(request):
+    return render(request, "base.html")
+
+
+def form(request):
+    return render(request, "form.html")
+
+def galaxy(request):
+    return render(request, "galaryPage.html")

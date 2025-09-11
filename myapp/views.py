@@ -14,9 +14,9 @@ def data(request):
     }
     return JsonResponse(data)
 
-# def even_odd(request, number):
-def even_odd(request):
-    number = 47
+def even_oddd(request, number):
+# def even_oddd(request):
+    # number = 47
     if number % 2 == 0:
         return HttpResponse(f"{number} is even")
     else:
@@ -122,3 +122,32 @@ def form(request):
 
 def galaxy(request):
     return render(request, "galaryPage.html")
+
+def passpermiter1(request):
+    name = "Anand"
+    course = "Java Developer"
+    fees = 20000
+    marks = 72
+    return render(request, 'passper.html', {"name":name, "course":course, "fees":fees, "marks":marks})
+
+
+def passpermiter2(request, numbe):
+    return render(request, 'passper.html',{"numbe":numbe})
+
+
+def passpermiter3(request):
+    studentdatabase = {
+        111: {
+            "name": "Anand",
+            "course": "Java",
+            "city": "Jalandhar",
+            "fees": 2000
+        },
+        112: {
+            "name": "Raj",
+            "course": "Python",
+            "city": "Jalandhar",
+            "fees": 1000
+        },
+    }
+    return render(request, 'passper.html', {"std": studentdatabase})

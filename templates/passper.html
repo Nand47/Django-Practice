@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+{% comment %}
+
+    <table border="1">
+    <tr>
+        <td>Name</td>
+        <td>course</td>
+        <td>fees</td>
+        <td>marks</td>
+        <td>Result</td>
+    </tr>
+    <tr>
+        <td>{{ name }}</td>
+        <td>{{ course }}</td>
+        <td>{{ fees }}</td>
+        <td>{{ marks }}</td>
+        <td>
+            {% if marks >= 33 %}
+                Pass
+            {% else %}
+                Fail
+            {% endif %}
+        </td>
+    </tr>
+</table>
+
+<h2>Student Details</h2>
+Name : {{ name }} <br>
+course : {{ course }} <br>
+Fees : {{ fees }} <br>
+Marks : {{ marks }} <br>
+{% if marks >= 33 %}
+    <p>You are pass</p>
+{% else %}
+    <p>You are failed</p>
+{% endif %}
+
+
+
+
+    
+
+    <h1>Number Result</h1>
+
+{% if numbe > 0 %}
+    <p>Positive</p>
+{% elif numbe < 0 %}
+    <p>Negative</p>
+{% else %}
+    <p>Zero</p>
+{% endif %}
+
+    
+    
+{% endcomment %}
+
+    
+
+<h2>Student Data</h2>
+<table border="1">
+    <tr>
+        <td>{{ std.111.name }}</td>
+        <td>{{ std.111.course }}</td>
+        <td>{{ std.111.city }}</td>
+        <td>{{ std.111.fees }}</td>
+    </tr>
+    <tr>
+        <td>{{ std.112.name }}</td>
+        <td>{{ std.112.course }}</td>
+        <td>{{ std.112.city }}</td>
+        <td>{{ std.112.fees }}</td>
+    </tr>
+</table>
+
+
+      
+        {% comment %}
+
+
+      <table border= "1">
+        {% for i in std %}
+        <tr>
+            <td>{{i.name}}</td>
+            <td>{{i.course}}</td>
+            <td>{{i.city}}</td>
+            <td>{{i.fees}}</td>
+        </tr>
+        { % endfor % }
+      </table>
+      {% endcomment %}
+
+</body>
+</html>

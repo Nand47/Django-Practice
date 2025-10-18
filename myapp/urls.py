@@ -32,7 +32,13 @@ urlpatterns = [
     path('galary/', views.galaxy),
     path('passpe1/',views.passpermiter1),
     path('passpe2/<int:numbe>',views.passpermiter2),
-    path('passpe3/',views.passpermiter3)
+    path('passpe3/',views.passpermiter3),
+    path('image/',views.image),
+    path('forme1/',views.form1),
+    path('forme2/',views.form2),
+    path('forme3/',views.form3),
+    path('forme4/',views.form4),
+
 ]
 
 # handler404 = "myapp.views.handler404"

@@ -151,3 +151,64 @@ def passpermiter3(request):
         },
     }
     return render(request, 'passper.html', {"std": studentdatabase})
+
+
+def image(request):
+    return render(request, 'about.html')
+
+def form1(req):
+    output =""
+    try:
+        f=req.GET.get("fname")
+        l=req.GET.get("lname")
+        output=f+" "+l
+        # print(f,l)
+    except:
+        pass
+    return render(req,'form1.html',{"output":output})
+
+
+def form2(req):
+    sum =""
+    try:
+        n1=int(req.GET.get("num1"))
+        n2=int(req.GET.get("num2"))
+        sum=n1+" "+n2
+    except:
+        pass
+    return render(req,'form1.html',{"sum":sum})
+
+
+def form3(req):
+    output =""
+    try:
+        f=req.GET.get("fname")
+        l=req.GET.get("lname")
+        output=f+" "+l
+    except: 
+        pass
+    return render(req,'form1.html',{"output":output})
+
+def form4(req):
+    sum=""
+    try:
+        if req.POST.get("num1")=="":
+            # return render(req,'form1.html',
+            return HttpResponse("<script>alert('Please enter first number')</script>")
+                # {"error":True})
+        if req.POST.get("num2")=="":
+            return HttpResponse("<script>alert('Please enter second number')</script>")
+                # return render(req,'form1.html',{"error":True})
+        else:
+            f=int(req.POST["num1"])
+            l=int(req.POST["num2"])
+            sum=f+l 
+    except:
+        pass    
+    return render(req,'form1.html',{"sum":sum})
+
+
+def userinput():
+    data={}
+    data["form"]=form.inputuser()
+    return render(request,'form.html',data)
